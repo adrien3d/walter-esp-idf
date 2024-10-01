@@ -167,8 +167,8 @@ bool lteConnect()
 
   /* Wait for the network to become available */
   WalterModemNetworkRegState regState = modem.getNetworkRegState();
-  while(!(regState == WALTER_MODEM_NETOWRK_REG_REGISTERED_HOME ||
-          regState == WALTER_MODEM_NETOWRK_REG_REGISTERED_ROAMING))
+  while(!(regState == WALTER_MODEM_NETWORK_REG_REGISTERED_HOME ||
+          regState == WALTER_MODEM_NETWORK_REG_REGISTERED_ROAMING))
   {
     vTaskDelay(pdMS_TO_TICKS(1000));
     WalterModemRsp rsp;
@@ -271,7 +271,7 @@ void checkAssistanceData(
 /**
  * @brief This function will update GNSS assistance data when needed.
  * 
- * This funtion will check if the current real-time ephemeris data is good
+ * This function will check if the current real-time ephemeris data is good
  * enough to get a fast GNSS fix. If not the function will attach to the LTE 
  * network to download newer assistance data.
  * 
@@ -616,5 +616,7 @@ extern "C" void app_main(void)
     }
   
     lteDisconnect();
+
+    vTaskDelay(pdMS_TO_TICKS(10*60000));
   }
 }

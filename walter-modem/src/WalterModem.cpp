@@ -3505,7 +3505,7 @@ void WalterModem::offlineMotaUpgrade(uint8_t *otaBuffer)
 #ifdef CORE_DEBUG_LEVEL
 bool WalterModem::begin(HardwareSerial *uart, uint8_t watchdogTimeout)
 #else
-bool WalterModem::begin(uint8_t uartNo, uint8_t watchdogTimeout)
+bool WalterModem::begin(uart_port_t uartNo, uint8_t watchdogTimeout)
 #endif
 {
     if(_initialized) {

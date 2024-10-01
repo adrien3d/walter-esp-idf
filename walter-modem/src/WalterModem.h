@@ -2837,7 +2837,7 @@ class WalterModem
 #ifdef CORE_DEBUG_LEVEL
         static bool begin(HardwareSerial *uart, uint8_t watchdogTimeout = 0);
 #else
-        static bool begin(uint8_t uartNo, uint8_t watchdogTimeout = 0);
+        static bool begin(uart_port_t uartNo, uint8_t watchdogTimeout = 0);
 #endif
 
         /**
